@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+  datastaxVersion = '4.5.0'
+  slf4jVersion = '1.7.5'
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.codahale.metrics/metrics-core
+    implementation 'com.codahale.metrics:metrics-core:3.0.2'
+    implementation 'io.netty:netty-transport:4.1.71.Final'
+    implementation "com.datastax.oss:java-driver-core:${datastaxVersion}"
+    implementation "com.datastax.oss:java-driver-query-builder:${datastaxVersion}"
+    implementation 'com.datastax.cassandra:cassandra-driver-core:3.1.2'
+    implementation 'log4j:log4j:1.2.17'
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    implementation "org.slf4j:slf4j-log4j12:${slf4jVersion}"
+}
+
+mainClassName = "example.Main"
